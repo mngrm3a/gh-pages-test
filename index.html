@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="stylesheet.cs">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Todo List</h1>
+    <div>
+      <input id="todo-text">
+    </div>
+  </header>
+  <main>
+    <ol id="todo-list"></ol>
+  </main>
+  <script>
+    document.getElementById("todo-text").addEventListener("keyup", (e) => {
+      if (e.key === 'Enter' || e.keyCode === 13) {
+        const todoText = document.getElementById("todo-text");
+        if (todoText.value) {
+          document.getElementById("todo-list").appendChild(mkTodoListElement(todoText.value));
+          todoText.value = "";
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
